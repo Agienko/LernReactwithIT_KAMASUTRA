@@ -1,0 +1,23 @@
+.wrapper{
+    display: grid;
+    grid-template-areas:
+     'header header'
+     'users messages';
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 2fr 3fr;
+}
+.wrapper header{
+    grid-area: header;
+   
+}
+
+.users{
+    font-size: 1.1rem;
+    padding:  0 30px;
+    
+    grid-area: users;
+    border-right: 2px solid gray;
+}
+
+
+

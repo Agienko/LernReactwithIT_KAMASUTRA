@@ -1,0 +1,20 @@
+.nav{
+    padding: 15px 10px;
+    background-color: rgb(5, 170, 32);
+    grid-area: nav;
+}
+.wrapper {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.wrapper figcaption{
+    text-align: center;
+    color: white;
+}
+.wrapper img{
+    width: 50px;
+    margin: 10px;
+    border-radius: 50%;
+}

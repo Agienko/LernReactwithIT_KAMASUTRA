@@ -1,0 +1,11 @@
+.main{
+    grid-area: main;
+}
+.main header img {
+    width: 100%;
+    min-width: 400px;
+    max-width: 1200px;
+    height: 180px;
+}
+
+

@@ -1,0 +1,15 @@
+.li {
+    list-style-type: none;
+    margin-left: 10px;
+    margin-bottom: 12px;
+}
+.li a {
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: white;
+}
+
+.li a.active {  
+    color: gold;
+}
+

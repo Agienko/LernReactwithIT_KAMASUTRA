@@ -1,0 +1,16 @@
+.header{
+    background-color: rgb(5, 170, 32);
+    grid-area: head;
+}
+.header img{
+    height: 100%;
+    border-radius: 50%;
+    margin-left: 15px;
+    padding: 5px;
+    animation: rotate 30s linear 0s infinite;
+}
+
+@keyframes rotate {
+    from {transform: rotate(0);}
+    to {transform: rotate(360deg);}
+}

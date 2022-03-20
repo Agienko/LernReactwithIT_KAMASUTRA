@@ -1,0 +1,23 @@
+.btnWrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.h2{
+    margin: 10px;
+}
+.btnWrapper button{
+    width: 180px;
+    height: 40px;
+    background-color: rgb(5, 170, 32);
+    color: white;
+    border: none;
+    align-items: center;
+}
+
+.btnWrapper button:hover{
+    background-color: rgb(7, 192, 38);
+}
+.btnWrapper button:active{
+     color: rgb(255, 224, 122);
+}
