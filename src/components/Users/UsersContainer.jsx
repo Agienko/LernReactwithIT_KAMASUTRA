@@ -1,18 +1,21 @@
 import Users from "./Users";
 import { connect } from "react-redux";
-import { subscribeUserAC, setUsersAC } from "../../redux/redusers/usersReducer";
+import { subscribeUserAC, setUsersAC, setPageNumAC, setTotalCountAC } from "../../redux/redusers/usersReducer";
 
 
 const mapStateToProps = state =>{
     return {
-       usersPage: state.usersPage 
+        usersPage: state.usersPage,
+
     }
 }
 
 const mapDispatchToProps = dispatch =>{
     return {
        handleFollowClick: userId => dispatch(subscribeUserAC(userId)),
-       onSetUsersClick: users => dispatch(setUsersAC(users))
+       setUsers: users => dispatch(setUsersAC(users)),
+       onChangePageClick: pageNum => dispatch(setPageNumAC(pageNum)),
+       setTotalCount: totalPages => dispatch(setTotalCountAC(totalPages)),
     }
 }
 

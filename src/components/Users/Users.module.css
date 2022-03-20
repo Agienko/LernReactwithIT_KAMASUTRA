@@ -21,3 +21,22 @@
 .btnWrapper button:active{
      color: rgb(255, 224, 122);
 }
+.pagination{
+    display: flex;
+    margin-bottom: 10px;
+}
+.pagination div{
+    color:gray;
+    margin-right: 5px;
+    cursor: default;
+}
+.pagination div:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.pagination .selected{
+    color:black;
+    font-weight: bold;
+    text-decoration: underline;
+}

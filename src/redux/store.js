@@ -8,8 +8,8 @@ import usersReducer from "./redusers/usersReducer";
 let redusers = combineReducers({
   messagesPage: messageReducer, 
   navBarPage: navBarReducer,
-   profilePage: profileReducer,
-   usersPage: usersReducer
+  profilePage: profileReducer,
+  usersPage: usersReducer
 })
 
 let store = createStore(redusers)
