@@ -50,8 +50,6 @@ render(){
 </div> 
 }
 
-
-
 }
     
 export default Users;

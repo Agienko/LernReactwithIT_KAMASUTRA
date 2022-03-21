@@ -23,8 +23,25 @@
 }
 .pagination{
     display: flex;
+    padding: 2px;
     margin-bottom: 10px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    width: 1000px;
+    overflow-x: auto;
 }
+.pagination::-webkit-scrollbar{
+height: 10px;
+}
+.pagination::-webkit-scrollbar-track {
+    background: rgb(197, 197, 197);   
+  }
+.pagination::-webkit-scrollbar-thumb {
+    background-color: rgb(141, 141, 141); 
+    border-radius: 6px;       
+    border: 2px solid rgb(197, 197, 197);
+  }
+
 .pagination div{
     color:gray;
     margin-right: 5px;
