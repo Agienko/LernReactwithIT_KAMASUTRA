@@ -3,11 +3,10 @@ import styles from './AddMessage.module.css'
 
 
 const AddMessage = (props) =>{
-  const handlerChange =(e)=>{
-    let body = e.target.value
-    props.handlerChange(body)
-  }
-    return  (
+
+  const handlerChange =(e)=> props.updateMessage(e.target.value)
+  
+    return (
       <div className={styles.messages}>
         {props.messagesPage.messagesData.map(message => 
           <div className={styles.messageWrap} key={message.id}>
@@ -27,7 +26,7 @@ const AddMessage = (props) =>{
               onChange={handlerChange}
             ></textarea>
             <div className={styles.btn}>
-                <button onClick={ props.handlerClick }>Send</button>
+                <button onClick={ props.addMessage }>Send</button>
             </div>
           </div>
       </div>

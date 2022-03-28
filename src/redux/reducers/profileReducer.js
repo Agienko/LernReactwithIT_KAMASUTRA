@@ -31,5 +31,5 @@ const profileReducer = (state = initialState, action) => {
 export default profileReducer;
 
 
-export const updateTextAreaAC = text =>({type: UPDATE_TEXT_AREA, text: text})
-export const addPostAC = () =>({type: ADD_POST})
+export const updateTextArea = text =>({type: UPDATE_TEXT_AREA, text: text})
+export const addPost = () =>({type: ADD_POST})

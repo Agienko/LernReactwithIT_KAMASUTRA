@@ -1,0 +1,12 @@
+.preloader{
+   
+    position: absolute;
+    left: 40%;
+    top: 30%;
+}
+
+.preloader img{
+    position: fixed;
+    width: 20%;
+    opacity: 0.8;
+}

@@ -6,11 +6,11 @@ const AddPost = (props) =>{
 
   const handlerChange = (e) =>{
         let body = e.target.value
-        props.handlerChange(body)
+        props.updateTextArea(body)
   }
 
   const onHandlerClick = () =>{
-        props.hanlerClick()
+        props.addPost()
   }
   return  (
     <div className={styles.addPost}>
