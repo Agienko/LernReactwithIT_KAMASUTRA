@@ -6,7 +6,7 @@ const SET_TOTAL_PAGES = 'SET_TOTAL_PAGES'
 let initialState = {
    users: [],
    totalPages: 0,
-   countOnPage: 100,
+   countOnPage: 10,
    currentPage: 1,
 }
 
@@ -24,12 +24,12 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 users: [...action.users]
             }
-            case SET_PAGE_NUM: 
+        case SET_PAGE_NUM: 
             return {
                ...state,
                currentPage: action.pageNum
             }    
-            case SET_TOTAL_PAGES: 
+        case SET_TOTAL_PAGES: 
             return {
                ...state,
                totalPages: Math.ceil(action.totalPages/state.countOnPage) 
@@ -40,7 +40,6 @@ const usersReducer = (state = initialState, action) => {
 }
 
 export default usersReducer;
-
 
 export const subscribeUserAC = userId => ({type: SUBSCRIBE, userId})
 export const setUsersAC = users => ({type: SET_USERS, users})

@@ -1,7 +1,6 @@
-import React from "react";
-import { addMessageAC, updateMessageAC } from "../../../../redux/redusers/messageReducer";
 import AddMessage from "./AddMessage";
 import { connect } from "react-redux";
+import { addMessageAC, updateMessageAC } from "../../../../redux/reducers/messageReducer";
 
 
 const mapStateToProps = state => ({messagesPage: state.messagesPage})

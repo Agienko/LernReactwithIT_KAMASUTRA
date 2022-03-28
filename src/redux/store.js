@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from "redux";
-import messageReducer from './redusers/messageReducer'
-import navBarReducer from './redusers/navBarReducer'
-import profileReducer from './redusers/profileReducer'
-import usersReducer from "./redusers/usersReducer";
+import messageReducer from './reducers/messageReducer'
+import navBarReducer from './reducers/navBarReducer'
+import profileReducer from './reducers/profileReducer'
+import usersReducer from "./reducers/usersReducer";
 
 
 let redusers = combineReducers({
