@@ -9,7 +9,7 @@ const NavBar = (props) =>{
     return  (
         <nav className={styles.nav}>
         <ul>
-        {props.navBarData.map(item => <NavBarItem item={item} key={item.id}/>)}
+        {props.navBarPage.navBarData.map(item => <NavBarItem item={item} key={item.id}/>)}
         </ul>
         <div className={styles.wrapper}>
           <figure>

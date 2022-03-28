@@ -1,0 +1,11 @@
+
+.users{
+    font-size: 1.1rem;
+    padding:  0 30px;
+    list-style: none;
+    grid-area: users;
+    border-right: 2px solid gray;
+}
+
+
+

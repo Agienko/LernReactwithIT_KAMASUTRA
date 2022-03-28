@@ -5,10 +5,12 @@ const UserItem = props => (
     <div className={styles.wrapper}>
         <div className={styles.left}>
             <figure>
-                <img src={
-                    (props.user.photos.small !== null )
-                    ? props.user.photos.small 
-                    : 'https://www.pngkit.com/png/full/988-9886241_hotel-computer-icons-linkedin-native-advertising-chatbot-gloucester.png'} alt="фото" />
+                <img 
+                    src={ (props.user.photos.small !== null )
+                        ? props.user.photos.small 
+                        : 'https://www.pngkit.com/png/full/988-9886241_hotel-computer-icons-linkedin-native-advertising-chatbot-gloucester.png'} 
+                    alt="фото" 
+                    onClick={() => console.log(props.user.id)}/>
                 <figcaption>
                 <button onClick={() => props.handleClick(props.user.id)} >{props.user.followed ? 'Unfollow' : 'Follow'}</button>
                 </figcaption>

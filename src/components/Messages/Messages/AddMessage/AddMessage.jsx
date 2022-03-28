@@ -20,8 +20,7 @@ const AddMessage = (props) =>{
 
           <div className={styles.addPost}>
             <h3>Send Message</h3>
-            <textarea  
-              placeholder="your message..." 
+            <textarea placeholder="your message..." 
               value={props.messagesPage.newMessageText} 
               onChange={handlerChange}
             ></textarea>

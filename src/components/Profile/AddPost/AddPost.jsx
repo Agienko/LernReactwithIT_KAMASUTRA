@@ -3,7 +3,7 @@ import styles from './AddPost.module.css'
 import Post from "../Post/Post";
 
 const AddPost = (props) =>{
-
+  console.log(props)
   const handlerChange = (e) =>{
         let body = e.target.value
         props.updateTextArea(body)
@@ -23,7 +23,7 @@ const AddPost = (props) =>{
       <div className={styles.btn}>
         <button onClick={onHandlerClick}>Send</button>
       </div>
-        {props.store.getState().profilePage.postsData
+        {props.profilePage.postsData
           .map(post => <Post message={post.message} likes={post.likes} key={post.id}/>)}
     </div>
   ) 

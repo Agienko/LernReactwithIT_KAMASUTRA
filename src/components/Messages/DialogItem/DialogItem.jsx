@@ -8,8 +8,9 @@ return(
     <li className={styles.li}>
         <img  src={props.ava} alt="ava"/> 
         <NavLink to={/messages/ + props.id} 
-        className = { navData => navData.isActive ? styles.active : styles.item } 
-        >{' ' + props.name}</NavLink>
+                className = { navData => navData.isActive ? styles.active : styles.item } 
+                >{' ' + props.name}
+        </NavLink>
     </li>
     )
 }
