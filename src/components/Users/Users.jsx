@@ -19,7 +19,8 @@ const Users = props => {
     </div>
 
     {props.usersPage.users.map(user => <UserItem 
-        handleClick = {props.subscribeUser}
+        follow = {props.follow}
+        unFollow = {props.unFollow}
         user={user} key={user.id}/>)}
 
     <div className={styles.btnWrapper}>

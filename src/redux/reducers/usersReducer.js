@@ -1,4 +1,5 @@
-const SUBSCRIBE = 'SUBSCRIBE'
+const FOLLOW = 'FOLLOW'
+const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
 const SET_PAGE_NUM = 'SET_PAGE_NUM'
 const SET_TOTAL_PAGES = 'SET_TOTAL_PAGES'
@@ -15,12 +16,14 @@ let initialState = {
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SUBSCRIBE:
-            return {...state, users: state.users.map(user => 
-                            (user.id === action.userId)
-                            ? {...user, followed: !user.followed} 
-                            : user)
+        case FOLLOW:
+            return {...state, users: state.users.map(user => (user.id === action.userId)
+                        ? {...user, followed: true} : user)
                     }
+        case UNFOLLOW:
+            return {...state, users: state.users.map(user => (user.id === action.userId)
+                        ? {...user, followed: false} : user)
+                    } 
         case SET_USERS: 
             return {...state, users: [...action.users]
             }
@@ -39,7 +42,8 @@ const usersReducer = (state = initialState, action) => {
 
 export default usersReducer;
 
-export const subscribeUser = userId => ({type: SUBSCRIBE, userId})
+export const follow = userId => ({type: FOLLOW, userId})
+export const unFollow = userId => ({type: UNFOLLOW, userId})
 export const setUsers = users => ({type: SET_USERS, users})
 export const setPageNum = pageNum => ({type: SET_PAGE_NUM, pageNum})
 export const setTotalCount = totalPages => ({type: SET_TOTAL_PAGES, totalPages})

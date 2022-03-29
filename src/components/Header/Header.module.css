@@ -1,11 +1,14 @@
 .header{
     background-color: rgb(5, 170, 32);
     grid-area: head;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 15px;
 }
 .header img{
     height: 100%;
     border-radius: 50%;
-    margin-left: 15px;
     padding: 5px;
     animation: rotate 30s linear 0s infinite;
 }
@@ -13,4 +16,17 @@
 @keyframes rotate {
     from {transform: rotate(0);}
     to {transform: rotate(360deg);}
+}
+
+.login{
+   
+    user-select: none;
+    font-family: sans-serif;
+    color: rgb(255, 255, 255);
+}
+.login h3:hover{
+    cursor: pointer;
+    color:gold;
+    text-decoration: underline;
+    transition: all .05s ease-out;
 }

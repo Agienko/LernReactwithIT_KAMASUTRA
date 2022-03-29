@@ -27,7 +27,7 @@
     margin-bottom: 10px;
     border: 2px solid gray;
     border-radius: 5px;
-    width: 1000px;
+    max-width: 1000px;
     overflow-x: auto;
 }
 .pagination::-webkit-scrollbar{
