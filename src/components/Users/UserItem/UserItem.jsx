@@ -1,16 +1,17 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from './UserItem.module.css'
-
+import defaultPhoto from '../../../img/defaultPhoto.png'
 const UserItem = props => (
     <div className={styles.wrapper}>
         <div className={styles.left}>
             <figure>
-                <img 
-                    src={ (props.user.photos.small !== null )
-                        ? props.user.photos.small 
-                        : 'https://www.pngkit.com/png/full/988-9886241_hotel-computer-icons-linkedin-native-advertising-chatbot-gloucester.png'} 
-                    alt="фото" 
-                    onClick={() => console.log(props.user.id)}/>
+                <NavLink to={'/profile/' + props.user.id}>
+                    <img src={ (props.user.photos.small !== null ) ? props.user.photos.small : defaultPhoto} 
+                            alt="фото" 
+                        onClick={() => console.log(props.user.id)}
+                    />
+                </NavLink>
                 <figcaption>
                 <button onClick={() => props.handleClick(props.user.id)} >{props.user.followed ? 'Unfollow' : 'Follow'}</button>
                 </figcaption>

@@ -1,20 +1,23 @@
 import React from "react";
 import styles from './ProfileInfo.module.css'
-
+import defaultPhoto from '../../../img/defaultPhoto.png'
 const ProfileInfo = (props) => {
+ 
   return (
-      <div className={styles.info}>
-        <div className={styles.ava}>
-          <img src="https://vraki.net/sites/default/files/inline/images/10_342.jpg" alt="ava" />
-        </div>
-        <div className={styles.description}>
-          <h3 > Vladimir X</h3>
-          <p> Date of Bith. 04.03.2000</p>
-          <p>Sity: Stambul</p>
-          <p>Education: Garvard</p>
-          <p>Web-Site: www.123.com</p>
-        </div>
+    <div className={styles.info}>
+      <div className={styles.ava}>
+        <img src={props.photos.large ? props.photos.large : defaultPhoto} alt="ava" />
       </div>
+      <div className={styles.description}>
+        <h3 >{props.fullName}</h3>
+        <p className={styles.aboutMe}>{props.aboutMe}</p>
+        <p>{props.lookingForAJob ? 'В поиске работы' : 'Не ищу работу'}</p>
+        <p>Комментарий: {props.lookingForAJobDescription}</p>
+        {Object.entries(props.contacts).filter(i=> i[1])
+        .map(contact => 
+          <p key={contact[0]}> {contact[0]}:<a target='_blank' rel="noreferrer" href={"//"+contact[1]}> <em className={styles.aboutMe}>{contact[1]}</em></a></p>)}
+      </div>
+    </div>
   )
   
 }

@@ -3,7 +3,6 @@ import styles from './AddPost.module.css'
 import Post from "../Post/Post";
 
 const AddPost = (props) =>{
-  console.log(props)
   const handlerChange = (e) =>{
         let body = e.target.value
         props.updateTextArea(body)
