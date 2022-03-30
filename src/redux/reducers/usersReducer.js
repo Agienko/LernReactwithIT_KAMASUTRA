@@ -4,6 +4,7 @@ const SET_USERS = 'SET_USERS'
 const SET_PAGE_NUM = 'SET_PAGE_NUM'
 const SET_TOTAL_PAGES = 'SET_TOTAL_PAGES'
 const IS_LOADING = 'IS_LOADING'
+const TOGGLE_IN_PROGRESS = 'TOGGLE_IN_PROGRESS'
 
 
 let initialState = {
@@ -11,7 +12,8 @@ let initialState = {
    totalPages: 0,
    countOnPage: 10,
    currentPage: 1,
-   isLoading: false
+   isLoading: false,
+   inProgress: []
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -35,6 +37,11 @@ const usersReducer = (state = initialState, action) => {
             }    
         case IS_LOADING: 
             return {...state, isLoading: action.status}    
+            case TOGGLE_IN_PROGRESS: 
+            console.log(action.toggle)
+            return  action.toggle 
+                    ? {...state, inProgress: [...state.inProgress, action.id]} 
+                    : {...state, inProgress: state.inProgress.filter(i => i!== action.id)} 
         default: 
             return state;
       }  
@@ -49,3 +56,4 @@ export const setPageNum = pageNum => ({type: SET_PAGE_NUM, pageNum})
 export const setTotalCount = totalPages => ({type: SET_TOTAL_PAGES, totalPages})
 export const isLoading = status => ({type: IS_LOADING, status})
 
+export const toggleInProgress = (id, toggle) => ({type: TOGGLE_IN_PROGRESS, id, toggle})

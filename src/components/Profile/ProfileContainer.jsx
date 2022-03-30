@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import Profile from "./Profile";
 import { setUserProfile} from "../../redux/reducers/profileReducer";
 import {  useParams } from "react-router-dom";
-import { getUserProfile } from "../../api/api";
+import { profileAPI } from "../../api/api";
 
 
 const ProfileAPI = props =>{
     const userId = useParams()['*'] || '2';
     useEffect(() =>{ 
-        getUserProfile(userId)
+        profileAPI.getUserProfile(userId)
         .then(data => props.setUserProfile(data) )
     }, [])
 

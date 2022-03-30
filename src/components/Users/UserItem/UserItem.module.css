@@ -39,4 +39,8 @@
 .wrapper .left button:active{
      color: rgb(255, 224, 122);
 }
+.wrapper .left button:disabled{
+    background-color: rgb(46, 102, 39);
+    color:rgb(204, 204, 204);
+}
 

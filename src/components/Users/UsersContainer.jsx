@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
-import {follow, unFollow, setUsers, setPageNum, setTotalCount, isLoading } from "../../redux/reducers/usersReducer";
+import {follow, unFollow, setUsers, setPageNum, setTotalCount, isLoading, toggleInProgress } from "../../redux/reducers/usersReducer";
 import React from "react";
 import Users from "./Users";
-import { getUsers } from "../../api/api";
+import { usersAPI } from "../../api/api";
 
 class UsersAPI extends React.Component {
     componentDidMount(){
             this.props.isLoading(true)
-        getUsers(this.props.usersPage.countOnPage,this.props.usersPage.currentPage)
+        usersAPI.getUsers(this.props.usersPage.countOnPage,this.props.usersPage.currentPage)
         .then(data =>{
             this.props.setUsers(data.items)
             this.props.setTotalCount(data.totalCount)
@@ -17,7 +17,7 @@ class UsersAPI extends React.Component {
     onChangePageClick(pageNum){
             this.props.isLoading(true)
             this.props.setPageNum(pageNum)
-        getUsers(this.props.usersPage.countOnPage,pageNum)
+        usersAPI.getUsers(this.props.usersPage.countOnPage,pageNum)
         .then(data =>{
             this.props.setUsers(data.items)
             this.props.isLoading(false)
@@ -28,12 +28,13 @@ class UsersAPI extends React.Component {
                         follow={this.props.follow}
                         unFollow={this.props.unFollow}
                         onChangePageClick={this.onChangePageClick.bind(this)}
+                        toggleInProgress={this.props.toggleInProgress}
                 />
         }
 }   
 
 const mapStateToProps = state =>({usersPage: state.usersPage,})
 
-const UsersContainer = connect(mapStateToProps, {follow, unFollow,  setUsers, setPageNum, setTotalCount, isLoading})(UsersAPI)
+const UsersContainer = connect(mapStateToProps, {follow, unFollow,  setUsers, setPageNum, setTotalCount, isLoading, toggleInProgress})(UsersAPI)
 
 export default UsersContainer;

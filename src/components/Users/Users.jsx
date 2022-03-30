@@ -17,11 +17,14 @@ const Users = props => {
             ? <div key={pageNum} className={styles.selected}>{pageNum}</div>
             : <div onClick={() => props.onChangePageClick(pageNum)} key={pageNum}>{pageNum}</div>))}
     </div>
-
     {props.usersPage.users.map(user => <UserItem 
         follow = {props.follow}
         unFollow = {props.unFollow}
-        user={user} key={user.id}/>)}
+        user={user} key={user.id}
+        toggleInProgress={props.toggleInProgress}
+        inProgress={props.usersPage.inProgress}
+        />)}
+        
 
     <div className={styles.btnWrapper}>
         <button >Show more</button>

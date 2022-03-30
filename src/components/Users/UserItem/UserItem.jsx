@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from './UserItem.module.css'
 import defaultPhoto from '../../../img/defaultPhoto.png'
-import { followUser, unFollowUser } from "../../../api/api";
+import { followAPI } from "../../../api/api";
 const UserItem = props => (
     <div className={styles.wrapper}>
         <div className={styles.left}>
@@ -16,14 +16,22 @@ const UserItem = props => (
                 <figcaption>
                 
                     {props.user.followed 
-                    ? <button onClick={() => {
-                        unFollowUser(props.user.id).then(data =>{
-                             if (data.resultCode === 0) props.unFollow(props.user.id)
+                    ? <button disabled={props.inProgress.some(i => i === props.user.id)} onClick={() => {
+                        props.toggleInProgress(props.user.id, true)
+                        followAPI.unFollowUser(props.user.id).then(data =>{
+                             if (data.resultCode === 0) {
+                                 props.unFollow(props.user.id)
+                                 props.toggleInProgress(props.user.id, false)
+                                }
                         })
                     }} >Unfollow </button>
-                    : <button onClick={() => {
-                        followUser(props.user.id).then(data =>{
-                            if (data.resultCode === 0) props.follow(props.user.id)
+                    : <button disabled={props.inProgress.some(i => i === props.user.id)}  onClick={() => {
+                        props.toggleInProgress(props.user.id, true)
+                        followAPI.followUser(props.user.id).then(data =>{
+                            if (data.resultCode === 0) {
+                                props.follow(props.user.id)
+                                props.toggleInProgress(props.user.id, false)
+                            }
                         })
                     }} > Follow</button>}
                
