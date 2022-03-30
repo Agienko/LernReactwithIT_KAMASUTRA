@@ -14,7 +14,7 @@ const UserItem = props => (
                     />
                 </NavLink>
                 <figcaption>
-                
+                {console.log(props)}
                     {props.user.followed 
                     ? <button disabled={props.inProgress.some(i => i === props.user.id)} onClick={() => {
                         props.toggleInProgress(props.user.id, true)

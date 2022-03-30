@@ -1,3 +1,5 @@
+import { usersAPI } from "../../api/api"
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
@@ -5,7 +7,6 @@ const SET_PAGE_NUM = 'SET_PAGE_NUM'
 const SET_TOTAL_PAGES = 'SET_TOTAL_PAGES'
 const IS_LOADING = 'IS_LOADING'
 const TOGGLE_IN_PROGRESS = 'TOGGLE_IN_PROGRESS'
-
 
 let initialState = {
    users: [],
@@ -55,5 +56,18 @@ export const setUsers = users => ({type: SET_USERS, users})
 export const setPageNum = pageNum => ({type: SET_PAGE_NUM, pageNum})
 export const setTotalCount = totalPages => ({type: SET_TOTAL_PAGES, totalPages})
 export const isLoading = status => ({type: IS_LOADING, status})
-
 export const toggleInProgress = (id, toggle) => ({type: TOGGLE_IN_PROGRESS, id, toggle})
+
+
+export const getUsersThunkCreator = (countOnPage, currentPage) => {
+    return dispatch => {
+        dispatch(setPageNum(currentPage))
+        dispatch(isLoading(true))
+        usersAPI.getUsers(countOnPage, currentPage)
+        .then(data =>{
+            dispatch(setUsers(data.items))
+            dispatch(setTotalCount(data.totalCount))
+            dispatch(isLoading(false))
+        })
+    }
+}
