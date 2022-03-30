@@ -18,11 +18,10 @@ const Users = props => {
             : <div onClick={() => props.onChangePageClick(pageNum)} key={pageNum}>{pageNum}</div>))}
     </div>
     {props.usersPage.users.map(user => <UserItem 
-        follow = {props.follow}
-        unFollow = {props.unFollow}
         user={user} key={user.id}
-        toggleInProgress={props.toggleInProgress}
         inProgress={props.usersPage.inProgress}
+        followUser={props.followUser}
+        unFollowUser={props.unFollowUser}
         />)}
         
 

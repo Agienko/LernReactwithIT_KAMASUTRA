@@ -1,4 +1,4 @@
-import { usersAPI } from "../../api/api"
+import { followAPI, usersAPI } from "../../api/api"
 
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
@@ -58,16 +58,31 @@ export const setTotalCount = totalPages => ({type: SET_TOTAL_PAGES, totalPages})
 export const isLoading = status => ({type: IS_LOADING, status})
 export const toggleInProgress = (id, toggle) => ({type: TOGGLE_IN_PROGRESS, id, toggle})
 
+export const getUsers = (countOnPage, currentPage) => dispatch => {
+    dispatch(setPageNum(currentPage))
+    dispatch(isLoading(true))
+    usersAPI.getUsers(countOnPage, currentPage).then(data => {
+        dispatch(setUsers(data.items))
+        dispatch(setTotalCount(data.totalCount))
+        dispatch(isLoading(false))
+    }) 
+}
+export const followUser = (id) => dispatch => {
+    dispatch(toggleInProgress(id, true))
+    followAPI.followUser(id).then(data => {
+        if (data.resultCode === 0) {
+            dispatch(follow(id))
+            dispatch(toggleInProgress(id, false))
+        }
+    })
+}
 
-export const getUsersThunkCreator = (countOnPage, currentPage) => {
-    return dispatch => {
-        dispatch(setPageNum(currentPage))
-        dispatch(isLoading(true))
-        usersAPI.getUsers(countOnPage, currentPage)
-        .then(data =>{
-            dispatch(setUsers(data.items))
-            dispatch(setTotalCount(data.totalCount))
-            dispatch(isLoading(false))
-        })
-    }
+export const unFollowUser = id => dispatch => {
+    dispatch(toggleInProgress(id, true))
+    followAPI.unFollowUser(id).then(data => {
+        if (data.resultCode === 0) {
+            dispatch(unFollow(id))
+            dispatch(toggleInProgress(id, false))
+        }
+    })
 }

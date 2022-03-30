@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
-import { setUserProfile} from "../../redux/reducers/profileReducer";
-import {  useParams } from "react-router-dom";
-import { profileAPI } from "../../api/api";
-
+import {getUserProfileThunk} from "../../redux/reducers/profileReducer";
+import { useParams } from "react-router-dom";
 
 const ProfileAPI = props =>{
     const userId = useParams()['*'] || '2';
     useEffect(() =>{ 
-        profileAPI.getUserProfile(userId)
-        .then(data => props.setUserProfile(data) )
+        props.getUserProfileThunk(userId)
     }, [])
 
     return <Profile {...props}/>
@@ -19,8 +16,6 @@ const ProfileAPI = props =>{
 
 const mapStateToProps = state => ({profilePage: state.profilePage})
 
-
-
-const ProfileContainer = connect(mapStateToProps, {setUserProfile})(ProfileAPI) 
+const ProfileContainer = connect(mapStateToProps, {getUserProfileThunk})(ProfileAPI) 
 
 export default ProfileContainer
