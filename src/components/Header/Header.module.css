@@ -24,6 +24,11 @@
     font-family: sans-serif;
     color: rgb(255, 255, 255);
 }
+
+.login a{
+    user-select: none;
+    color:inherit;
+}
 .login h3:hover{
     cursor: pointer;
     color:gold;

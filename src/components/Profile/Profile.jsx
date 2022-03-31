@@ -4,8 +4,8 @@ import styles from './Profile.module.css'
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Preloader from '../common/Preloader/Preloader'
 
+
 const Profile = (props) =>{
-  
     return  (
       <main className={styles.main}>
         <header>

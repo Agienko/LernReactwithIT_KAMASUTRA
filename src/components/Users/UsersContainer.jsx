@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import {getUsers, followUser, unFollowUser } from "../../redux/reducers/usersReducer";
 import React from "react";
 import Users from "./Users";
+import withAuthNavigate from "../hoc/withAuthNavigate";
 
 class UsersAPI extends React.Component {
     componentDidMount(){
@@ -15,12 +16,13 @@ class UsersAPI extends React.Component {
                         onChangePageClick={this.onChangePageClick.bind(this)}
                         followUser={this.props.followUser}
                         unFollowUser={this.props.unFollowUser}
+                        isAuth={this.props.isAuth}
                 />
         }
 }   
 
-const mapStateToProps = state =>({usersPage: state.usersPage,})
+const mapStateToProps = state =>({usersPage: state.usersPage})
 
 const UsersContainer = connect(mapStateToProps, {getUsers, followUser, unFollowUser})(UsersAPI)
 
-export default UsersContainer;
+export default withAuthNavigate(UsersContainer) ;

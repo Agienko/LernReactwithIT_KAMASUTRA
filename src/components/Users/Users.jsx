@@ -4,6 +4,7 @@ import UserItem from "./UserItem/UserItem";
 import styles from './Users.module.css'
 
 const Users = props => {
+   
     const pages = [];
     for(let i = 1; i <=props.usersPage.totalPages; i++) pages.push(i)   
     
