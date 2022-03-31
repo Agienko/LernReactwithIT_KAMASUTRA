@@ -3,6 +3,7 @@ import {getUsers, followUser, unFollowUser } from "../../redux/reducers/usersRed
 import React from "react";
 import Users from "./Users";
 import withAuthNavigate from "../hoc/withAuthNavigate";
+import { compose } from "redux";
 
 class UsersAPI extends React.Component {
     componentDidMount(){
@@ -23,6 +24,7 @@ class UsersAPI extends React.Component {
 
 const mapStateToProps = state =>({usersPage: state.usersPage})
 
-const UsersContainer = connect(mapStateToProps, {getUsers, followUser, unFollowUser})(UsersAPI)
-
-export default withAuthNavigate(UsersContainer) ;
+export default compose(
+    withAuthNavigate,
+    connect(mapStateToProps, {getUsers, followUser, unFollowUser})
+)(UsersAPI)
